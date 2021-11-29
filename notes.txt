@@ -56,3 +56,5 @@ Assumption
 Public?
     Any attributed assigned to 'this' 
     Any attributed assigned to 'prototype' 
+
+Reactive (Dumb) X Proactive (Knowledge)
