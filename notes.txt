@@ -58,3 +58,6 @@ Public?
     Any attributed assigned to 'prototype' 
 
 Reactive (Dumb) X Proactive (Knowledge)
+
+
+In
