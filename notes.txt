@@ -1,0 +1,48 @@
+Schedule:
+    Commence    : 9:00 AM
+    Tea Break   : 11:00 AM (15 mins)
+    Lunch Break : 1:00 PM (1 hr)
+    Tea Break   : 3:30 PM (15 mins)
+    Wind up     : 5:00 PM
+
+Methodology:
+    No powerpoints
+    100% hands on
+    From the scratch (No focus on CSS etc)
+
+Code Repository:
+    http://github.com/tkmagesh/NT-React-Nov-2021
+
+Software Requirements:
+    - Node.js (LTS)
+    - Editor (Visual Studio Code)
+    - Chrome Browser
+    - Git Client
+
+About You:
+    Name
+    Experience
+    Primary Skillset
+    Experience in React (if any)
+    Any interesting books / tv shows / movies
+
+
+Agenda:
+    - Day 1
+       - Problem 
+       - Solution (jQuery)
+       - Solution (React)
+       - JSX
+       - ES6 Features
+       - React Components
+
+Problem
+    - Rich Internet Applications (RIA)
+
+Salary Calculator
+    Basic
+    HRA
+    DA
+    Tax (%)
+    Gross = Basic + HRA + DA
+    Net = Gross - Tax
