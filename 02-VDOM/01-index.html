@@ -13,9 +13,11 @@
             function onBtnRenderClick(){
                 ++counter;
 
+                //VDOM
                 var h3 = React.createElement('h3', { id: 'header-3' }, 'Welcome to React.js - ' + counter);
                 ReactDOM.render(h3, document.getElementById('root'));
                 
+                //DOM
                 document.getElementById('spanCounter').innerHTML = counter;
             }
             function init(){
