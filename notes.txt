@@ -46,3 +46,8 @@ Salary Calculator
     Tax (%)
     Gross = Basic + HRA + DA
     Net = Gross - Tax
+
+Assumption 
+    #1 : No validations are required
+    #2 : A different team is responsible for preparing our application for deployment
+    #3 : 100% according the users requirements
