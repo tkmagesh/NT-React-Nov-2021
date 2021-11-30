@@ -129,3 +129,31 @@ Convert the following HTML to a 'Greeter' component
 <input type="text" name="" id="">
 <button>Greet</button>
 <div>[greeting]</div>
+
+Build a calculator using any of the following template
+<h1>Calculator</h1>
+<hr>
+<input type="number" name="" id="">
+<input type="number" name="" id="">
+<br>
+<button>Add</button>
+<button>Subtract</button>
+<button>Multiply</button>
+<button>Divide</button>
+<div>[Result]</div>
+
+
+================================================
+
+<h1>Caluclator</h1>
+<hr>
+<input type="number" name="" id="">
+<select name="" id="">
+    <option value="add">Add</option>
+    <option value="subtract">Subtract</option>
+    <option value="multiply">Multiply</option>
+    <option value="divide">Divide</option>
+</select>
+<input type="number" name="" id="">
+<button>Calculate</button>
+<div>[Result]</div>
