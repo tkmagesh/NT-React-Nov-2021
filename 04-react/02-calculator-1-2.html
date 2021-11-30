@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator-1</title>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="babel.min.js"></script>
+    <script type="text/babel">
+        class Calculator extends React.Component{
+            state = {
+                result: 0,
+                num1: 0,
+                num2: 0
+            };
+
+            onTxtNum1Change = (e) => {
+                const num1 = e.target.value ? parseInt(e.target.value) : 0;
+                this.setState({num1});
+            };
+
+            onTxtNum2Change = (e) => {
+                const num2 = e.target.value ? parseInt(e.target.value) : 0;
+                this.setState({ num2 });
+            };
+
+            onBtnClick = (evt) => {
+                let oper = evt.target.innerText.toLowerCase();
+                const { num1, num2 } = this.state;
+                let result = 0;
+                switch (oper) {
+                    case 'add':
+                        result = num1 + num2;
+                        break;
+                    case 'subtract':
+                        result = num1 - num2;
+                        break;
+                    case 'multiply':
+                        result = num1 * num2;
+                        break;
+                    case 'divide':
+                        result = num1 / num2;
+                        break;
+                    default:
+                        break;
+                }
+                this.setState({ result });
+            }
+            render(){
+                return(
+                    <div>
+                        <h1>Calculator</h1>
+                        <hr/>
+                        <input type="number" onChange={ this.onTxtNum1Change}/>
+                        <input type="number" onChange={ this.onTxtNum2Change}/>
+                        <br/>
+                        <button onClick={this.onBtnClick}>Add</button>
+                        <button onClick={this.onBtnClick}>Subtract</button>
+                        <button onClick={this.onBtnClick}>Multiply</button>
+                        <button onClick={this.onBtnClick}>Divide</button>
+                        <div>{this.state.result}</div>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Calculator/>, document.getElementById('root'))
+    </script>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+</body>
+</html>
