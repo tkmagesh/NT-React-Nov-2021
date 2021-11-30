@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeter</title>
+    <style>
+        .greeting {
+            font-size: 2em;
+            font-weight: bold;
+        }
+    </style>
+
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="babel.min.js"></script>
+    <script type="text/babel">
+        class Greeter extends React.Component{
+            //state
+            state = {
+                message : '[Default greet message]'
+            };
+
+            //behavior
+            onBtnGreetClick = () => {
+                console.log('Greet button clicked');
+                this.setState({
+                    message : 'Hi there!'
+                }, () => {
+                    console.log(this.state.message);
+                } /* callback to be execute once the state updation is completed */);
+            };
+
+            //presentation
+            render(){
+                return (
+                    <div>
+                        <h1>Greeter</h1>
+                        <hr/>
+                        <label htmlFor="">User Name :</label>
+                        <input type="text" name="" id=""/>
+                        <button onClick={this.onBtnGreetClick}>Greet</button>
+                        <div className="greeting">{this.state.message}</div>
+                    </div>
+                );
+            }               
+        }
+
+        ReactDOM.render(
+            <Greeter/>, 
+            document.getElementById('root')
+        );
+    </script>
+</head>
+<body>
+    <div id="root">
+        <!-- 
+         -->
+    </div>
+
+</body>
+</html>
