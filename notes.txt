@@ -60,4 +60,72 @@ Public?
 Reactive (Dumb) X Proactive (Knowledge)
 
 
-In
+React helps by constructing the UI using VDOM which help in making DOM updates very efficient.
+
+
+Component
+    Encapsulation of Presentation + UI Behavior + State
+    Reusable
+    Customizable
+    Composable
+
+React Components
+    Class Component
+    Functional Component
+
+ES6 (ECMAScript 6 / ES2015)
+    1. let
+    2. const
+    3. Array destructuring
+    4. Rest operator (array)
+    5. Spread operator (array)
+    6. Object destructuring
+    7. Rest operator (object)
+    8. Spread operator (object)
+    9. Default arguments
+    10. Arrow functions
+    11. Template Literals
+    12. Iterators (for of)
+    13. Generators (functions whose execution can be suspended and resumed)
+    14. Object construction enhancements
+    15. Class
+    (To be discussed later)
+    16. Modules
+    17. Promises
+    18. Async Await
+
+Day-2 Assignment
+    Array Methods
+        filter
+        forEach
+        map
+        reduce
+
+
+Function Invocation Patterns
+    1. As a method of an obj
+        this -> obj
+    2. As a function
+        this -> global scope (window in the browser)
+    3. Using the 'call' method
+    4. Using the 'apply' method
+    
+
+HTML & JSX
+    HTML
+        Open tags without corresponding close tags are allowed
+        "for" attribute is allowed
+        "class" attribute is allowed
+    JSX
+        Every open tag MUST have a corresponding close tag
+        Use "htmlFor" in place of "for" attribute
+        use "className" inplace of "class" attribute
+
+
+Convert the following HTML to a 'Greeter' component
+<h1>Greeter</h1>
+<hr>
+<label for="">User Name:</label>
+<input type="text" name="" id="">
+<button>Greet</button>
+<div>[greeting]</div>
