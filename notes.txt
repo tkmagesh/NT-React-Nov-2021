@@ -157,3 +157,10 @@ Build a calculator using any of the following template
 <input type="number" name="" id="">
 <button>Calculate</button>
 <div>[Result]</div>
+
+================================================
+Solve the Salary Calculator using React
+
+Questions
+    1. If we have to use the model, why there is a 'state' feature in react components?
+    2. why the controls are read-only when a 'value' is hardcoded?
