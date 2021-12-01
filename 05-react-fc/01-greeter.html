@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeter</title>
+    <style>
+        .greeting {
+            font-size: 2em;
+            font-weight: bold;
+        }
+    </style>
+
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="babel.min.js"></script>
+    <script type="text/babel">
+        /* class Greeter extends React.Component {
+            render(){
+                return(<h1>Hello World!</h1>)
+            }
+        } */
+
+        /* 
+        function Greeter(){
+            return <h1>Hello World!</h1>
+        } 
+        */
+        const Counter = (props) => {
+            const [ counter, setCounter ] = React.useState(100)
+            
+            const onBtnClick = () => {
+                console.log('button clicked, props.template => ', props.template);
+                setCounter(counter + 1);
+            };
+
+            return (
+                <div>
+                <h1>Hello World! [FC]</h1>
+                <div>Counter : {counter} </div>
+                <button onClick={onBtnClick}>Click Me!</button>
+                </div>
+            )
+        }
+
+        ReactDOM.render(
+            <div>
+                <Counter template="Hi there!"/>
+            </div>, 
+            document.getElementById('root')
+        );
+
+        
+    </script>
+</head>
+<body>
+    <div id="root">
+        <!-- 
+         -->
+    </div>
+
+</body>
+</html>

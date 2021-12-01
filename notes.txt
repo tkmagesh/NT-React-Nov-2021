@@ -164,3 +164,16 @@ Solve the Salary Calculator using React
 Questions
     1. If we have to use the model, why there is a 'state' feature in react components?
     2. why the controls are read-only when a 'value' is hardcoded?
+
+
+Class Components
+    1. Component instances need to be created
+    2. Life cycle methods of the components need to be executed even when they are not overridden
+
+Function Components
+    1. Functions as components
+    2. Component instances do not need to be created
+    3. Life cycle methods of the components need not be executed even when they are not overridden
+    4. side effects are handled using react hooks
+        hooks are functions that can be used to manage state and other side effects
+        hook function names must start with 'use'

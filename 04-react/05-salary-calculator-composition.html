@@ -69,7 +69,35 @@
                 model.set('basic', val)
             };
 
+            componentWillMount() {
+                console.log('componentWillMount')
+            }
+
+            componentDidMount(){
+                //connect to the websocket server
+                console.log('componentDidMount')
+            }
+
+            shouldComponentUpdate(nextProps, nextState){
+                console.log('shouldComponentUpdate')
+                return true;
+            }
+
+            componentWillUpdate(nextProps, nextState){
+                console.log('componentWillUpdate')
+            }
+
+            componentDidUpdate(prevProps, prevState){
+                console.log('componentDidUpdate')
+            }
+
+            componentWillUnmount(){
+                //disconnect from the websocket server
+                console.log('componentWillUnmount')
+            }
+
             render(){
+                console.log('render')
                 const { model } = this.props;
                 const data = model.toJSON();
                 const { basic, hra, da, tax, salary } = data;
