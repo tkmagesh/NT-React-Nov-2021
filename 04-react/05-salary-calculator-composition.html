@@ -65,6 +65,10 @@
 
         //View
         class SalaryCalculator extends React.Component{
+            onBasicChange = (val) => {
+                model.set('basic', val)
+            };
+
             render(){
                 const { model } = this.props;
                 const data = model.toJSON();
@@ -78,21 +82,24 @@
                             <SalaryCalculatorInput 
                                 labelText="Basic :" 
                                 value={basic} 
-                                onValueChange = { val => model.set('basic', val) }
+                                onValueChange = { this.onBasicChange }
                             />
-
-                            <div className="field">
-                                <label htmlFor="">HRA :</label>
-                                <input type="number" value={hra}  onChange={evt => model.set('hra', parseInt(evt.target.value))}/>
-                            </div>
-                            <div className="field">
-                                <label htmlFor="">DA :</label>
-                                <input type="number" value={da} onChange={evt => model.set('da', parseInt(evt.target.value))}/>
-                            </div>
-                            <div className="field">
-                                <label htmlFor="">Tax :</label>
-                                <input type="range"  min="0" max="30" value={tax} onChange={evt => model.set('tax', parseInt(evt.target.value))}/>
-                            </div>
+                            <SalaryCalculatorInput
+                                labelText="HRA :"
+                                value={hra}
+                                onValueChange={ val => model.set('hra', val)}
+                            />
+                            <SalaryCalculatorInput
+                                labelText="DA :"
+                                value={da}
+                                onValueChange={val => model.set('da', val)}
+                            />
+                            <SalaryCalculatorInput
+                                labelText="Tax :"
+                                value={tax}
+                                onValueChange={val => model.set('tax', val)}
+                                type="range" min="0" max="30"
+                            />
                             <div className="field">
                                 <input type="button" value="Calculate" onClick={ () => model.calculate() }/>
                             </div>
@@ -105,11 +112,14 @@
 
         class SalaryCalculatorInput extends React.Component{
             render(){
-                const { labelText, value, onValueChange } = this.props;
+                const { labelText, value, onValueChange, type="number", ...restProps } = this.props;
                 return(
                     <div className="field">
                         <label htmlFor="">{labelText}</label>
-                        <input type="number" value={value} 
+                        <input 
+                            {...restProps}
+                            type={type} 
+                            value={value} 
                             onChange={evt => onValueChange(parseInt(evt.target.value))} />
                     </div>
                 )
