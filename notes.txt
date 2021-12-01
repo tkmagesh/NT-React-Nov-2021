@@ -177,3 +177,6 @@ Function Components
     4. side effects are handled using react hooks
         hooks are functions that can be used to manage state and other side effects
         hook function names must start with 'use'
+
+Assignment
+Convert the NT-React-Nov-2021/05-react-fc/02-calculator-composition.html into a functional component
