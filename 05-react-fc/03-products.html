@@ -25,12 +25,21 @@
             }); 
             */
 
-            const productItems = productNames.map((productName, index) => (<li key={index}>{productName}</li>));
+            const productItems = productNames.map((productName, idx) => (
+                <li key={idx}>
+                    <span>{productName}</span>
+                    <button> X </button>
+                </li>
+            ));
 
             return (
                  <div>
                     <h3>Products</h3>
+                    <div> Count : <span>[count]</span></div>
                     <hr/>
+                    <label>Product Name :</label>
+                    <input type="text" />
+                    <button>Add</button>
                     { productNames.length <= 0 ? <div>No Products found!</div> : <ul>{productItems}</ul> }
                 </div>
             )
