@@ -180,3 +180,18 @@ Function Components
 
 Assignment
 Convert the NT-React-Nov-2021/05-react-fc/02-calculator-composition.html into a functional component
+
+
+npx http-server -c -1
+
+State
+    UI State
+        - data that supports the 'presentation (UI) needs' of the application
+        - it is highly UNLIKELY that a change in this state need to be recogized by other parts of the application
+        - feel free to maintain this in the component (using the this.state OR React.useState() )
+
+    App State
+        - data that supports the 'business logic (business needs) of the application'
+        - it is highly LIKELY that a change in this state need to be recogized by other parts of the application
+        - DO NOT maintain this in the component state 
+        - Maintain this data outside the component in such a way a change in this state can be easily recognized by other parts of the application
