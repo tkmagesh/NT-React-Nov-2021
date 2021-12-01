@@ -9,18 +9,23 @@
     <script src="react-dom.development.js"></script>
     <script src="babel.min.js"></script>
     <script type="text/babel">
-        const Products = () => {
+
+
+        const Products = (props) => {
             const [productNames, setProductNames] = React.useState([ ]);
             const [newProductName, setNewProductName] = React.useState('')
 
             const onBtnAddClick = () => {
-                setProductNames([...productNames, newProductName]);
+                const updatedProductNames = [...productNames, newProductName];
+                setProductNames(updatedProductNames);
                 setNewProductName('');
+                props.onListChange(updatedProductNames);
             }
 
             const onBtnRemoveClick = (productName) => { 
                 const updatedProductNames = productNames.filter(pn => pn != productName);
                 setProductNames(updatedProductNames);
+                props.onListChange(updatedProductNames);
             }
 
             const productItems = productNames.map((productName, idx) => (
@@ -33,7 +38,6 @@
             return (
                  <div>
                     <h3>Products</h3>
-                    <div> Count : <span>[{productNames.length}]</span></div>
                     <hr/>
                     <label>Product Name :</label>
                     <input type="text" value={newProductName} onChange={ evt => setNewProductName(evt.target.value)} />
@@ -43,7 +47,23 @@
             )
         }
 
-        ReactDOM.render(<Products/>, document.getElementById('root'))
+        const ProductsCount = (props) => {
+            return (
+                <div> Count : <span>[{props.data}]</span></div>
+            )
+        }
+
+        const App = () => {
+            const [count, setCount] = React.useState(0)
+            return (
+                <div>
+                    <ProductsCount data={count}/>
+                    <Products onListChange = {(list) => setCount(list.length)}/>
+                </div>
+            )
+        }
+
+        ReactDOM.render(<App/>, document.getElementById('root'))
     </script>
 </head>
 <body>
