@@ -10,36 +10,36 @@
     <script src="babel.min.js"></script>
     <script type="text/babel">
         const Products = () => {
-            const productNames = [ 'Pen', 'Pencil', 'Marker', 'Scribble Pad'  ];
-            /* 
-            const productItems = [];
-            for (let index = 0; index < productNames.length; index++) {
-                const productName = productNames[index];
-                ProductItems.push(<li key={index}>{productName}</li>);
-            } 
-            */
+            const [productNames, setProductNames] = React.useState([ 'Pen', 'Pencil', 'Marker', 'Scribble Pad'  ]);
+            const [newProductName, setNewProductName] = React.useState('')
 
-            /* 
-            const productItems = productNames.map((productName, index) => {
-                return <li key={index}>{productName}</li>
-            }); 
-            */
+           
+            
+            const onBtnAddClick = () => {
+                setProductNames([...productNames, newProductName]);
+                setNewProductName('');
+            }
+
+            const onBtnRemoveClick = (productName) => { 
+                const updatedProductNames = productNames.filter(pn => pn != productName);
+                setProductNames(updatedProductNames);
+            }
 
             const productItems = productNames.map((productName, idx) => (
                 <li key={idx}>
                     <span>{productName}</span>
-                    <button> X </button>
+                    <button onClick={() => onBtnRemoveClick(productName)}> X </button>
                 </li>
             ));
 
             return (
                  <div>
                     <h3>Products</h3>
-                    <div> Count : <span>[count]</span></div>
+                    <div> Count : <span>[{productNames.length}]</span></div>
                     <hr/>
                     <label>Product Name :</label>
-                    <input type="text" />
-                    <button>Add</button>
+                    <input type="text" value={newProductName} onChange={ evt => setNewProductName(evt.target.value)} />
+                    <button onClick={onBtnAddClick}>Add</button>
                     { productNames.length <= 0 ? <div>No Products found!</div> : <ul>{productItems}</ul> }
                 </div>
             )
