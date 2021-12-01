@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+        body{
+            margin-left: 50px;
+        }
+        section{
+            margin-bottom: 10px;
+        }
+        label{
+            display : block;
+        }
+        td{
+            padding : 10px;
+        }
+        .field{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Products</h1>
+    <hr>
+    <section class="edit">
+        <h3>Add New Product</h3>
+        <div class="field">
+            <label for="">Name :</label>
+            <input type="text" name="" id="">
+        </div>
+        <div class="field">
+            <label for="">Cost :</label>
+            <input type="number" name="" id=""></div>
+        <div class="field">
+            <label for="">Units</label>
+            <input type="number" name="" id="">
+        </div>
+        <div class="field">
+            <button>Save</button>
+            <button>Cancel</button>
+        </div>     
+    </section>
+    <section class="list">
+        <h3>Products List</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>Units</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Product -1</td>
+                    <td>10</td>
+                    <td>5</td>
+                    <td>50</td>
+                    <td><button>Edit</button></td>
+                    <td><button>Remove</button></td>
+                </tr>
+                <tr>
+                    <td colspan="3">Total</td>
+                    <td>50</td>
+                    <td></td>
+                    <td></td>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

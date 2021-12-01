@@ -10,11 +10,9 @@
     <script src="babel.min.js"></script>
     <script type="text/babel">
         const Products = () => {
-            const [productNames, setProductNames] = React.useState([ 'Pen', 'Pencil', 'Marker', 'Scribble Pad'  ]);
+            const [productNames, setProductNames] = React.useState([ ]);
             const [newProductName, setNewProductName] = React.useState('')
 
-           
-            
             const onBtnAddClick = () => {
                 setProductNames([...productNames, newProductName]);
                 setNewProductName('');
