@@ -1,7 +1,8 @@
 const StateManager = (function(){
     let _currentState = undefined,
         _callbacks = [],
-        _reducer = undefined;
+        _reducer = undefined,
+        _init_action =  {type: '@@INIT'};
 
     function getState(){
         return _currentState;
@@ -32,6 +33,7 @@ const StateManager = (function(){
             throw new Error('Reducer (function) is mandatory to create the store.')
         }
         _reducer = reducer;
+        _currentState = _reducer(undefined, _init_action); /* To initialize the store state with a valid default state */
         let store = {
             getState: getState,
             subscribe: subscribe,
