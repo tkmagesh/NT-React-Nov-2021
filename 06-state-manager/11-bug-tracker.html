@@ -9,11 +9,11 @@
         Use Cases
         ================================================
         (done) 1. Create a new bug
-        2. List the created bugs
-        3. Toggle the 'closed' status of any bug
-        4. Remove any bug
-        5. Remove 'closed' bugs
-        6. Display stats (# of closed bugs / total # of bugs)
+        (done) 2. List the created bugs
+        (done) 3. Toggle the 'closed' status of any bug
+        (done) 4. Remove any bug
+        (done) 5. Remove 'closed' bugs
+        (done) 6. Display stats (# of closed bugs / total # of bugs)
         7. Sort the bugs (assignment)
         8. Persist the bugs in the server
         9. Associate the bugs with a 'project'
@@ -65,6 +65,14 @@
                 case 'BUGS_ADD_NEW':
                     const newBug = action.payload;
                     return [...currentState, newBug];
+                case 'BUGS_REMOVE':
+                    const bugToRemove = action.payload;
+                    return currentState.filter(bug => bug.id !== bugToRemove.id); 
+                case 'BUGS_REPLACE':
+                    const bugToReplace = action.payload;
+                    return currentState.map(bug => bug.id === bugToReplace.id ? bugToReplace : bug);
+                case 'BUGS_REMOVE_CLOSED':
+                    return currentState.filter(bug => !bug.isClosed);
                 default :
                     return currentState;
             }
@@ -74,7 +82,7 @@
          let _currentBugId = 0;
 
          const bugActionCreators = {
-             addNew(bugName){
+            addNew(bugName){
                 const newBug = {
                     id : ++_currentBugId,
                     name : bugName,
@@ -83,17 +91,41 @@
                 };
                 const action = { type : 'BUGS_ADD_NEW', payload : newBug };
                 return action;
-             }
+            },
+            remove(bugToRemove){
+                const action = { type : 'BUGS_REMOVE', payload : bugToRemove };
+                return action;
+            },
+            toggle(bugToToggle){
+                const toggledBug = {...bugToToggle, isClosed : !bugToToggle.isClosed}
+                const action = { type : 'BUGS_REPLACE', payload : toggledBug };
+                return action;
+            },
+            removeClosed(){
+                const action = { type : 'BUGS_REMOVE_CLOSED' }
+                return action;
+            }
          }
 
-         const Bugs = ({bugs, addNew}) => {
+         const Bugs = ({bugs, addNew, remove, toggle, removeClosed}) => {
              const [newBugName, setNewBugName] = React.useState('');
-
+             const closedBugsCount = bugs.reduce((result, bug) => bug.isClosed ? result + 1 : result, 0);
+             const bugItems = bugs.map((bug) => (
+                 <li key={bug.id}>
+                     <span 
+                        className={ "bugname " + (bug.isClosed ? 'closed' : '') }
+                        onClick={ () => toggle(bug) }
+                    >{bug.name}</span>
+                    
+                     <div className="datetime">{bug.createdAt.toString()}</div>
+                     <button onClick={ () => remove(bug) }>Remove</button>
+                 </li>
+             ))
              return (
                  <div>
                     <h3>Bugs</h3>
                      <section className="stats">
-                         <span className="closed">1</span>
+                         <span className="closed">{closedBugsCount}</span>
                          <span> / </span>
                          <span>{bugs.length}</span>
                      </section>
@@ -114,18 +146,9 @@
                      </section>
                      <section className="list">
                          <ol>
-                             <li>
-                                 <span className="bugname">[Bug - 1]</span>
-                                 <div className="datetime">[Created At]</div>
-                                 <button>Remove</button>
-                             </li>
-                             <li>
-                                 <span className="bugname closed">[Bug - 2]</span>
-                                 <div className="datetime">[Created At]</div>
-                                 <button>Remove</button>
-                             </li>
+                             {bugItems}
                          </ol>
-                         <button>Remove Closed</button>
+                         <button onClick={removeClosed}>Remove Closed</button>
                      </section>
                 </div>
              )
