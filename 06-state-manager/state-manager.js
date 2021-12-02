@@ -46,8 +46,20 @@ const StateManager = (function(){
         return store;
     }
 
+    function bindActionCreators(actionCreators, dispatch){
+        const actionDispatchers = {};
+        for (let key in actionCreators){
+            actionDispatchers[key] = function(...args){
+                const action = actionCreators[key](...args);
+                dispatch(action)
+            }
+        }
+        return actionDispatchers;
+    }
+    
     const stateManager = {
-        createStore: createStore
+        createStore: createStore,
+        bindActionCreators: bindActionCreators
     };
 
     return stateManager;
