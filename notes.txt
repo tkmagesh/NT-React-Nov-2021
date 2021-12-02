@@ -195,3 +195,9 @@ State
         - it is highly LIKELY that a change in this state need to be recogized by other parts of the application
         - DO NOT maintain this in the component state 
         - Maintain this data outside the component in such a way a change in this state can be easily recognized by other parts of the application
+
+
+Actions
+    Objects
+    Must have 'type' attribute to uniquely identify an action throughout the application
+    May also have optional 'payload' attribute

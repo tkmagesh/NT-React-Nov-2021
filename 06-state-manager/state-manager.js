@@ -33,7 +33,10 @@ const StateManager = (function(){
             throw new Error('Reducer (function) is mandatory to create the store.')
         }
         _reducer = reducer;
-        _currentState = _reducer(undefined, _init_action); /* To initialize the store state with a valid default state */
+
+        /* To initialize the store state with a valid default state */
+        _currentState = _reducer(undefined, _init_action); 
+        
         let store = {
             getState: getState,
             subscribe: subscribe,
