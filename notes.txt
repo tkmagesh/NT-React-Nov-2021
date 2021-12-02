@@ -201,3 +201,29 @@ Actions
     Objects
     Must have 'type' attribute to uniquely identify an action throughout the application
     May also have optional 'payload' attribute
+
+
+Installing yarn
+    npm install yarn -g
+
+To create a react application
+    yarn create react-app <app-name>
+
+To configure the proxy
+    https://nt-docs.apps.system.pcf.ntrs.com/cdd-docs/ui/environment-setup/windows/
+
+To install redux
+    yarn add redux
+
+To start the application
+    yarn start
+
+ES6 Modules
+    1. Everything defined in a .js file is considered private by default
+    2. Any public entity has to be explicitly 'exported'
+    3. Any public entity from another file has to be explicitly 'imported' in order to be used
+
+calc.js
+    func add(){
+
+    }
