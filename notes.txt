@@ -244,6 +244,12 @@ Presentation Component / Dumb Component
 App Folder Structure
     src
         bugs
+            actions
+                addNew.js
+                toggle.js
+                remove.js
+                removeClosed.js
+                index.js
             components (all the presentation components)
                 BugSort.jsx
                 BugStats.jsx
