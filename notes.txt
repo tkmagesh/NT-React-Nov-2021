@@ -280,3 +280,12 @@ Installing redux-devtools
     yarn add -D redux-devtools-extension
     Install the chrome extension from https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
     configure the store
+
+Server?
+    json-server
+    From the folder that has the data file
+         npx json-server db.json -p 3030
+         
+Async Programming in JS?
+axios?
+Server communication?

@@ -28,6 +28,7 @@ const Bugs = () => {
 
     const { bugsState : bugs , projectsState :projects } = useSelector(state => state)
     const bugsWithProject = bugs.map(bug => {
+        if (!bug.projectId) return bug;
         const project = projects.find(p => p.id === bug.projectId);
         return { ...bug, projectName : project.name };
     })
