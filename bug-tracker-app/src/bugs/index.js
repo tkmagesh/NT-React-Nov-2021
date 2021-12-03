@@ -4,7 +4,25 @@ import BugEdit from './components/BugEdit';
 import BugList from './components/BugList';
 import './index.css';
 
-const Bugs = ({bugs, addNew, remove, toggle, removeClosed}) => {
+import { bindActionCreators } from 'redux';
+import bugActionCreators from './actions';
+import { useDispatch, useSelector } from 'react-redux';
+
+const Bugs = () => {
+
+    //Creating action dispatchers
+    const dispatch = useDispatch();
+    const bugActionDispatchers = bindActionCreators(bugActionCreators, dispatch);
+    const { addNew, remove, toggle, removeClosed } = bugActionDispatchers;
+
+    //extract state from the store
+    /* 
+    const bugs = useSelector(function(storeState){
+        return storeState.bugsState;
+    }); 
+    */
+    const bugs = useSelector(state => state.bugsState);
+
     return (
         <div>
             <h3>Bugs</h3>

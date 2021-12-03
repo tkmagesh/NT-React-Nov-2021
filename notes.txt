@@ -261,3 +261,13 @@ App Folder Structure
             index.js
         store
             index.js
+
+react-redux
+    (to install : yarn add react-redux)
+    Provider
+    hooks
+        useSelector
+            to access store state from the store
+
+        useDispatch
+            to get the access to the 'dispatch' from the store
