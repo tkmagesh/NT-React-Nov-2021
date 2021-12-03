@@ -285,7 +285,54 @@ Server?
     json-server
     From the folder that has the data file
          npx json-server db.json -p 3030
-         
+
 Async Programming in JS?
+    Operation intiated but not waited for its completion
+    Promise
+        an object using which the result of an async operation is communicated
+
+
+    function add(x,y){
+        const p = new Promise(function(resolveFn, rejectFn){
+            setTimeout(function(){
+                const result = x + y;
+                resolveFn(result);
+                console.log('oper completed');
+            }, 4000);
+        });
+        return p;
+    }
+
+    add(100,200)
+    .then(result => {
+        console.log('result = ', result);
+        return result * 2;
+    })
+    .then(doubleResult => console.log(doubleResult))
+
+
+    Using async await
+    function add(x,y){
+        const p = new Promise(function(resolveFn, rejectFn){
+            setTimeout(function(){
+                const result = x + y;
+                resolveFn(result);
+                console.log('oper completed');
+            }, 4000);
+        });
+        return p;
+    }
+    
+    async function addClient(x,y){
+    /*
+      add(x,y)
+        .then(result => {
+            console.log('result = ', result);
+        });
+    */
+    var result = await add(x,y);
+    console.log('result = ', result);
+    return result * 2;
+}
 axios?
 Server communication?
