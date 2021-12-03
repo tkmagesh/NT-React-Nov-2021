@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Effect</title>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="babel.min.js"></script>
+    <script type="text/babel">
+        const Timer = () => {
+            const [currentTime, setCurrentTime] = React.useState(Date());
+            React.useEffect(() => {
+                /* (initializer fn) executed when the componet is initialized / updated */
+                console.log('timer component initialized')
+                const timerId = setInterval(() => {
+                    setCurrentTime(Date());
+                }, 1000)
+                return () => {
+                    /* executed when the componet is unmounted*/
+                    console.log('timer component unmounted')
+                    if (timerId)
+                        clearInterval(timer);
+                }
+            }, [] /* list the dependencies which when changed we want the initializer function execute. An empty [] will make the initializer unction execute ONLY when the componet is mount and NOT when the component is unmounted */)
+            return (<div>{currentTime}</div>)
+        }
+
+        const TimerContainer = () => {
+            const [showTimer, setShowTimer] = React.useState(false);
+            return (
+                <div>
+                    <span>Show Timer : </span>
+                    <input type="checkbox" onChange={ evt => setShowTimer(evt.target.checked)} checked={showTimer}/>
+                    { showTimer && <Timer/> }
+                </div>
+            )
+        }
+
+        ReactDOM.render(<TimerContainer/>, document.getElementById('root'))
+    </script>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+</body>
+</html>
