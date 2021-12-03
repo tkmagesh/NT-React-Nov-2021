@@ -21,15 +21,24 @@ const Bugs = () => {
         return storeState.bugsState;
     }); 
     */
+    /* 
     const bugs = useSelector(state => state.bugsState);
+    const projects = useSelector(state => state.projectsState); 
+    */
+
+    const { bugsState : bugs , projectsState :projects } = useSelector(state => state)
+    const bugsWithProject = bugs.map(bug => {
+        const project = projects.find(p => p.id === bug.projectId);
+        return { ...bug, projectName : project.name };
+    })
 
     return (
         <div>
             <h3>Bugs</h3>
-            <BugStats bugs={bugs} /> 
+            <BugStats bugs={bugsWithProject} /> 
             <BugSort/>
-            <BugEdit addNew={addNew} /> 
-            <BugList {...{bugs, toggle, remove, removeClosed}} />
+            <BugEdit addNew={addNew} projects={projects} /> 
+            <BugList {...{ bugs : bugsWithProject, toggle, remove, removeClosed}} />
         </div>
     )
 }
