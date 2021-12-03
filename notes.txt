@@ -322,17 +322,52 @@ Async Programming in JS?
         });
         return p;
     }
-    
+
     async function addClient(x,y){
-    /*
-      add(x,y)
-        .then(result => {
-            console.log('result = ', result);
-        });
-    */
-    var result = await add(x,y);
-    console.log('result = ', result);
-    return result * 2;
-}
+        /*
+        add(x,y)
+            .then(result => {
+                console.log('result = ', result);
+            });
+        */
+        var result = await add(x,y);
+        console.log('result = ', result);
+        return result * 2;
+    }
+    
 axios?
+
+    GET
+        const response = await axios.get('http://localhost:3030/bugs')
+        const bugs = response.data;
+        console.table(bugs);
+
+    POST
+        var newBugData = { 
+            id : 0,
+            name : 'A new bug',
+            isClosed : false,
+            createdAt : new Date(),
+        }
+        const response = await axios.post('http://localhost:3030/bugs', newBugData);
+        const newBug = response.data;
+        console.log(newBug)
+
+
+    PUT
+        var updatedBugData = { 
+            id : 5,
+            name : 'A new bug [updated]',
+            isClosed : true,
+            createdAt : new Date(),
+        }
+        const response = await axios.put('http://localhost:3030/bugs/5', updatedBugData);
+        const updatedBug = response.data;
+        console.log(updatedBug)
+
+    DELETE
+        const response = await axios.delete('http://localhost:3030/bugs/5');
+        const deletedBug = response.data;
+        console.log(deletedBug)
+
 Server communication?
