@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { Provider } from 'react-redux';
 
+import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 import store from './store'
 import Bugs from './bugs'
 import Projects from './projects';
-import { Provider } from 'react-redux';
 
 ReactDOM.render(
   <Provider store={store}>
     <div>
       <h1>Bug Tracker</h1>
+      <Projects/>
       <Bugs/>
     </div>
   </Provider>,

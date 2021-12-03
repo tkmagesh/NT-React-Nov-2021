@@ -9,6 +9,7 @@ function addNew(bugName){
         isClosed : false
     };
     const action = { type : 'BUGS_ADD_NEW', payload : newBug };
+    //console.log(action);
     return action;
 }
 

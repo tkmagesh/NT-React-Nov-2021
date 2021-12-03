@@ -271,3 +271,8 @@ react-redux
 
         useDispatch
             to get the access to the 'dispatch' from the store
+
+
+redux middleware
+    to encapsulate any application logic common across more than one action
+    
