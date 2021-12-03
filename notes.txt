@@ -334,8 +334,10 @@ Async Programming in JS?
         console.log('result = ', result);
         return result * 2;
     }
-    
+
 axios?
+    To install
+        yarn add axios
 
     GET
         const response = await axios.get('http://localhost:3030/bugs')

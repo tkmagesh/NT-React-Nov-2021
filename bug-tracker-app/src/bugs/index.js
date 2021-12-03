@@ -13,7 +13,7 @@ const Bugs = () => {
     //Creating action dispatchers
     const dispatch = useDispatch();
     const bugActionDispatchers = bindActionCreators(bugActionCreators, dispatch);
-    const { addNew, remove, toggle, removeClosed } = bugActionDispatchers;
+    const { addNew, remove, toggle, removeClosed, load } = bugActionDispatchers;
 
     //extract state from the store
     /* 
@@ -36,6 +36,7 @@ const Bugs = () => {
     return (
         <div>
             <h3>Bugs</h3>
+            <button onClick={load}>Load Bugs</button>
             <BugStats bugs={bugsWithProject} /> 
             <BugSort/>
             <BugEdit addNew={addNew} projects={projects} /> 

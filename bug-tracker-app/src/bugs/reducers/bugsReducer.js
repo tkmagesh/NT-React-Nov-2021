@@ -11,6 +11,8 @@ function bugsReducer(currentState = [], action){
             return currentState.map(bug => bug.id === bugToReplace.id ? bugToReplace : bug);
         case 'BUGS_REMOVE_CLOSED':
             return currentState.filter(bug => !bug.isClosed);
+        case 'BUGS_LOADED':
+            return action.payload;
         default :
             return currentState;
     }
