@@ -22,7 +22,6 @@ function loggerMiddleware(store){
             console.log('%c Next State', 'color: green', store.getState());
             console.groupEnd();
         }
-
     }
 }
 
