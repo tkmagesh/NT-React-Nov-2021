@@ -7,6 +7,7 @@ import './index.css';
 import { bindActionCreators } from 'redux';
 import bugActionCreators from './actions';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 const Bugs = () => {
 
@@ -26,6 +27,10 @@ const Bugs = () => {
     const projects = useSelector(state => state.projectsState); 
     */
 
+    useEffect(() => {
+        load()
+    }, []);
+
     const { bugsState : bugs , projectsState :projects, asyncStatusState : message } = useSelector(state => state)
     const bugsWithProject = bugs.map(bug => {
         if (!bug.projectId) return bug;
@@ -37,7 +42,7 @@ const Bugs = () => {
         <div>
             <h3>Bugs</h3>
             <div>{message}</div>
-            <button onClick={load}>Load Bugs</button>
+            {/* <button onClick={load}>Load Bugs</button> */}
             <BugStats bugs={bugsWithProject} /> 
             <BugSort/>
             <BugEdit addNew={addNew} projects={projects} /> 
