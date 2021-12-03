@@ -11,3 +11,5 @@ const Projects = ({projects, addNew, remove}) => {
     )
 }
 
+export default Projects;
+
