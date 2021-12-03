@@ -275,4 +275,8 @@ react-redux
 
 redux middleware
     to encapsulate any application logic common across more than one action
-    
+
+Installing redux-devtools
+    yarn add -D redux-devtools-extension
+    Install the chrome extension from https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
+    configure the store

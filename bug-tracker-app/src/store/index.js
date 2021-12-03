@@ -1,4 +1,8 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+
+//redux dev tools
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 import bugsReducer from '../bugs/reducers/bugsReducer';
 import projectsReducer from '../projects/reducers/projects-reducer';
 
@@ -22,5 +26,9 @@ function loggerMiddleware(store){
     }
 }
 
-const store = createStore(rootReducer, applyMiddleware(loggerMiddleware));
+const store = createStore(
+    rootReducer, 
+    composeWithDevTools(applyMiddleware(loggerMiddleware))
+);
+
 export default store;
