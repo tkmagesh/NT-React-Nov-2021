@@ -12,9 +12,21 @@ import { takeEvery, put, call } from 'redux-saga/effects';
 import bugsReducer from '../bugs/reducers/bugsReducer';
 import projectsReducer from '../projects/reducers/projects-reducer';
 
+function asyncStatusReducer(currentState = '', action){
+    switch(action.type){
+        case 'ASYNC_START':
+            return 'Loading....';
+        case 'ASYNC_COMPLETE':
+            return '';
+        default:
+            return currentState;
+    }
+}
+
 const rootReducer = combineReducers({
     bugsState : bugsReducer,
-    projectsState : projectsReducer
+    projectsState : projectsReducer,
+    asyncStatusState : asyncStatusReducer
 });
 
 /* Middlewares */
@@ -43,11 +55,17 @@ function getServerBugs(){
 }
 
 function *loadBugs(){
+    /* Dispatch action 'ASYNC_START' */
+    yield put({type: 'ASYNC_START'});
+
     /* Call the API to load bugs */
     const bugs = yield call(getServerBugs);
-    
+
     /* Dispatch action 'BUGS_LOAD_SUCCESS' with data */
     yield put({type: 'BUGS_LOADED', payload: bugs});
+
+    /* Dispatch action 'ASYNC_COMPLETE' */
+    yield put({type: 'ASYNC_COMPLETE'});
 }
 
 const sagaMiddleware = createSagaMiddleware();
