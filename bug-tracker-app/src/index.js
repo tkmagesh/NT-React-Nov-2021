@@ -8,17 +8,41 @@ import reportWebVitals from './reportWebVitals';
 import store from './store'
 import Bugs from './bugs'
 import Projects from './projects';
+import Home from './home';
+import NotFound from './notfound';
 
-import axios from 'axios';
-window['axios'] = axios;
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+
+import * as RRD from 'react-router-dom';
+console.log(RRD);
 
 ReactDOM.render(
   <Provider store={store}>
-    <div>
+    <React.StrictMode>
       <h1>Bug Tracker</h1>
-      <Projects/>
-      <Bugs/>
-    </div>
+      <hr/>
+      <Router>
+        <div>
+          <span> [ <Link to="/"> Home </Link> ] </span>
+          <span> [ <Link to="/projects"> Projects </Link> ] </span>
+          <span> [ <Link to="/bugs"> Bugs </Link> ] </span>
+        </div>
+        <Switch>
+          <Route exact path="/">
+            <Home/>
+          </Route>
+          <Route path="/projects">
+            <Projects/>
+          </Route>
+          <Route path="/bugs">
+            <Bugs/>
+          </Route>
+          <Route path="**">
+            <NotFound/>
+          </Route>
+        </Switch>
+      </Router>
+    </React.StrictMode>
   </Provider>,
     document.getElementById('root')
 )
