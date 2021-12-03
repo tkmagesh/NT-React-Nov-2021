@@ -227,3 +227,31 @@ calc.js
     func add(){
 
     }
+
+
+Container Component / Smart Component
+    Receives data from the redux store
+    Receives action dispatchers
+    Passes the data and action dispatchers to the child components
+    DONOT interact with the user directly (UI logic)
+    Advicable to have fewer components
+
+Presentation Component / Dumb Component
+    Receives data and action dispatchers from container component
+    Renders the UI
+    App can have as many presentation components as needed
+
+App Folder Structure
+    src
+        bugs
+            components (all the presentation components)
+                BugSort.jsx
+                BugStats.jsx
+                BugEdit.jsx
+                BugList.jsx
+                BugItem.jsx
+            reducers
+                bugsReducer.js
+            index.js
+        store
+            index.js
